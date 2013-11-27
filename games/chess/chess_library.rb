@@ -1,0 +1,8 @@
+require './board'
+require './pieces/piece'
+require './pieces/pawn'
+require './pieces/rook'
+require './pieces/knight'
+require './pieces/bishop'
+require './pieces/queen'
+require './pieces/king'

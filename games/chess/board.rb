@@ -79,11 +79,11 @@ class Board
     display_array.each_with_index do |row, i|
       row.each_with_index do |col, j|
         if i.even?
-          print display_array[i][j].colorize(:background => :white) if j.even?
+          print display_array[i][j].colorize(:background => :blue) if j.even?
           print display_array[i][j].colorize(:background => :black) if j.odd?
         else
           print display_array[i][j].colorize(:background => :black) if j.even?
-          print display_array[i][j].colorize(:background => :white) if j.odd?
+          print display_array[i][j].colorize(:background => :blue) if j.odd?
         end
       end
       print "\n"

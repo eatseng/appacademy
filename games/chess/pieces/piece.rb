@@ -25,10 +25,8 @@ class SlidingPiece < Piece
 
         #move on top of opposite color
         unless @board[i, j].nil?
-          if @board[i, j].color != @color
-            possible_moves << [i, j]
-            #stop at first enemy piece
-          end
+          possible_moves << [i, j] if @board[i, j].color != @color
+          #stop at first enemy piece
           break
         end
       end

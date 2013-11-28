@@ -26,7 +26,7 @@ class Game
         @board.move(color, location, destination)
 
         color = (color == "white" ? "black" : "white")
-      rescue  => e
+      rescue ArgumentError => e
         puts e
         retry
       end

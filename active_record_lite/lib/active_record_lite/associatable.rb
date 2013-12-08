@@ -6,8 +6,6 @@ require_relative './db_connection.rb'
 
 class AssocParams
   def other_class
-
-
   end
 
   def other_table
@@ -105,7 +103,6 @@ module Associatable
   end
 
   def has_one_through(name, assoc1, assoc2)
-    #p @assoc_params[assoc1].other_class_table_name
     int_foreign_key = "#{assoc2.to_s}_id"
     source_primary_key = "#{assoc2.to_s.pluralize}.id"
 

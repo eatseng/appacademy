@@ -1,10 +1,8 @@
-AppAcademy
+Ice Cream Finder
 ==========
 
-Class Projects:
+Finds the closest ice cream shop from current location. Pass in an option hash to the command line as the first argument to set current location.
 
-1. HangMan
-2. WordChain (!In Progress)
-3. MineSweeper
-4. Chess (Requires colorize [gem install colorize])
-5. Checkers (Requires colorize)
+i/e:
+
+ruby ice_cream.rb option = { :address => "1016 market st, san francisco, ca", :radius => 1000 }

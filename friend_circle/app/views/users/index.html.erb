@@ -1,0 +1,6 @@
+<h1>All Users</h1>
+
+<%@users.each_with_index do |user, i|%>
+	<p><%=i+1%>. <%=user.email%>
+	</p>
+<%end%>

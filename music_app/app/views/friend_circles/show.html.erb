@@ -1,0 +1,13 @@
+<h1>Circle Information</h1>
+
+<a href = "<%=edit_friend_circle_url%>">Edit Circle</a>
+<p><%=button_to("Delete Circle", friend_circle_url(@circle),
+		 :method => :delete)%></p>
+
+
+<%@circle.members.each_with_index do |member, j|%>
+	<p>&nbsp&nbsp<%=j+1%>. <%=member.email%>
+	</p>
+<%end%>
+
+

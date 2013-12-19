@@ -1,0 +1,17 @@
+<h1>Post Information</h1>
+
+<a href = "<%=edit_post_url%>">Edit Post</a>
+<p><%=button_to("Delete Post", post_url(@post),
+		 :method => :delete)%></p>
+
+<p>Post Body</p>
+<p><%=@post.body%></p>
+
+<%@post.links.each_with_index do |link, j|%>
+	<p>&nbsp&nbsp<%=j+1%>. <%=link.url%>
+		<%=button_to("Delete Link", post_link_url(@post, link),
+			:method => :delete)%>
+	</p>
+<%end%>
+
+

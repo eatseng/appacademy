@@ -1,0 +1,32 @@
+<%message = (@circle.persisted? ? "Update" : "Create")%>
+<%method = (@circle.persisted? ? "PUT" : "POST")%>
+<%action = (@circle.persisted? ? friend_circle_url(@circle) : friend_circles_url)%>
+
+<h1><%=message%> Circle</h1>
+<form action="<%= action %>" method="post">
+	<input type = "hidden" name = "authenticity_token"
+		value = "<%=form_authenticity_token%>">
+		<input type = "hidden" name = "_method" value = "<%=method%>">
+
+  <p><label for="name">Circle Name</label>
+	  <input type="text" name="circle[name]" id="name"
+			value = "<%=@circle.name%>">
+	</p>
+
+	<input type = "hidden" name = "circle[member_ids][]"
+		value = "">
+	<%@users.each_with_index do |user, i|%>
+		<p><label for = "<%=i%>"><%=user.email%>
+		<input type = "checkbox"
+			name = "circle[member_ids][]"
+			value = "<%=user.id%>"
+			id = "<%=i%>"
+			<%="checked" if @circle.members.include?(user)%>>
+		</p>
+	<%end%>
+
+	<input type = "hidden" name = "circle[user_id]"
+		value = "<%=current_user.id%>">
+
+  <input type = "submit" value = "<%=message%> Circle">
+</form>

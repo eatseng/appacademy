@@ -1,0 +1,27 @@
+<%message = @goal.persisted? ? "Edit Goal" : "Create Goal"%>
+<%action = @goal.persisted? ? goal_url(@goal) : goals_url%>
+<%method = @goal.persisted? ? "PUT" : "POST"%>
+
+<h1><%=message%></h1>
+
+<form action = "<%=action%>" method = "POST">
+  <input type = "hidden" name = "authenticity_token"
+    value = "<%=form_authenticity_token%>">
+    <input type = "hidden" name = "_method" value = "<%=method%>">
+
+  <p><label for = "body">Goal Description</label>
+    <input type = "text" name = "goal[body]" id = "body"
+      value = "<%=@goal.body%>">
+  </p>
+
+  <p><input type ="radio" name = "goal[private]" id = "private"
+      value = "1" <%="checked" if @goal.private%>>
+    <label for = "private">Private</label>
+  </p>
+  <p><input type ="radio" name = "goal[private]" id = "public"
+      value = "0" <%="checked" if @goal.private%>>
+    <label for = "public">Public</label>
+  </p>
+
+  <input type = "submit" value = "<%=message%>">
+</form>

@@ -1,0 +1,13 @@
+<h1>Feed Index</h1>
+
+<%=button_to("Create Goal", new_goal_url, :method => :get)%>
+
+<%@goals.each_with_index do |goal, i|%>
+  <p><%=i+1%>. <%=goal.user.email%>
+  </p>
+  <p>description: <%=goal.body%>
+  </p>
+  <p>Number of cheers: <%=goal.cheers.length%>
+    <%=button_to("Cheer On", cheers_url(goal), :method => :get)%>
+  </p>
+<%end%>

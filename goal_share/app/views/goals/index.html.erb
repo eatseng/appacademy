@@ -1,0 +1,13 @@
+<h1>Goals Index</h1>
+
+<%=button_to("Create Goal", new_goal_url, :method => :get)%><p />
+<a href="<%=completed_goals_url%>">See Completed Goals</a><p />
+<a href="<%=feed_url%>">See Goals Feed</a>
+
+<h1>Current Goals</h1>
+<%@goals.each_with_index do |goal, i|%>
+  <p><%=i+1%>. <%=goal.body%>
+    <%=button_to("Goal Completed", completed_goals_url(goal), :method => :get)%>
+    <%=button_to("Delete Goal", goal_url(goal), :method => :delete)%>
+  </p>
+<%end%>

@@ -1,0 +1,7 @@
+<h1>User Index</h1>
+
+<%@users.each_with_index do |user, i|%>
+  <p><%=i+1%>. <%=user.email%>
+    <%=button_to("Delete User", user_url(user), :method => :delete)%>
+  </p>
+<%end%>

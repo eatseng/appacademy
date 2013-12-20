@@ -1,0 +1,6 @@
+<h1>Completed Goals Index</h1>
+
+<%@goals.each_with_index do |goal, i|%>
+  <p><%=i+1%>. <%=goal.body%>
+  </p>
+<%end%>

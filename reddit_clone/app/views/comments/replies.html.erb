@@ -1,0 +1,13 @@
+<h1>Comment</h1>
+
+<form action="<%=replies_comment_url%>" method="post">
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+
+  <label for="body">Body</label>
+  <input type="text" id="body" name="comment[body]">
+
+
+  <input type="submit" value="<%= value %>">
+</form>

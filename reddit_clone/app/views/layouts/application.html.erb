@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reddit</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%if flash[:notice]%>
+  <%flash[:notice].each do |notice|%>
+    <p><%=notice%></p>
+  <%end%>
+<%end%>
+
+<%if flash[:errors]%>
+  <%flash[:errors].each do |error|%>
+    <p><%=error%></p>
+  <%end%>
+<%end%>
+
+<%if logged_in?%>
+  <p><%=current_user.email%></p>
+  <p><%=button_to("Log Out", session_url, :method => :delete)%>
+  </p>
+<%else%>
+  <p><%=button_to("Log In", new_session_url, :method => :get)%>
+  </p>
+<%end%>
+
+
+
+<%= yield %>
+
+</body>
+</html>

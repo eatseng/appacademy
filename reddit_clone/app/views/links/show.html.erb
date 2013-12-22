@@ -1,0 +1,50 @@
+<h1><%=@link.title%></h1>
+
+<p><%=@link.upvotes%> Ups <%=@link.downvotes%> Down
+    <%=button_to("Up Vote", link_upvotes_url(@link), :method => :get)%>
+    <%=button_to("Down Vote", link_downvotes_url(@link), :method => :get)%>
+</p>
+
+<%if current_user.id == @link.user_id%>
+  <a href="<%=edit_link_url(@link)%>">Edit Link</a>
+
+  <%=button_to("Delete Link", link_url(@link), :method => :delete)%>
+<%end%>
+
+<table>
+  <tr>
+    <td>URL</td>
+    <td><%=@link.url%></td>
+  </tr>
+  <tr>
+    <td>Body</td>
+    <td><%=@link.body%></td>
+  </tr>
+</table>
+
+<h1>Add Comment</h1>
+
+<form action = "<%=link_comments_url(@link)%>" method = "POST">
+  <input type = "hidden" name = "authenticity_token"
+      value = "<%=form_authenticity_token%>">
+
+  <p><label for = "comment">New Comment</label>
+    <textarea name = "comment[body]" id = "comment"></textarea>
+  </p>
+
+  <input type = "submit" value = "Post Comment">
+</form>
+
+<h1>Comment</h1>
+
+<%@arr_comments[nil].each do |comment|%>
+  <ul>
+    <li><%=comment.body%> <%= link_to("Comment",
+        link_comment_url(@link, comment)) %>
+    </li>
+
+  <%= render "comments",
+      { :arr_comments => @arr_comments, :id => comment.id, :link => @link } %>
+  </ul>
+<%end%>
+

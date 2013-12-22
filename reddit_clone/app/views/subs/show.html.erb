@@ -1,0 +1,22 @@
+<h1><%=@sub.name%></h1>
+
+<%=button_to("Create Links", new_link_url, :method => :get)%>
+
+<%if current_user.id == @sub.user_id%>
+  <%=button_to("Delete Sub", sub_url(@sub), :method => :delete)%>
+<%end%>
+
+<%@sub.link_ranking.each_with_index do |link, i|%>
+  <p><%=i+1%>. <a href="<%=link_url(link)%>"><%=link.title%></a>
+  </p>
+  <p><%=link.upvotes%> Ups <%=link.downvotes%> Down
+    <%=button_to("Up Vote", link_upvotes_url(link), :method => :get)%>
+    <%=button_to("Down Vote", link_downvotes_url(link), :method => :get)%>
+  </p>
+  <p>Link URL: <%=link.url%>
+  </p>
+  <%if link.body%>
+    <p>Link Body: <%=link.body%>
+    </p>
+  <%end%>
+<%end%>

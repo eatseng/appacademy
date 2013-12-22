@@ -1,0 +1,10 @@
+<%arr_comments[id].each do |comment|%>
+  <ul>
+    <li><%=comment.body%> <%= link_to("Comment",
+        link_comment_url(link, comment)) %>
+    </li>
+
+  <%= render "comments",
+      { :arr_comments => arr_comments, :id => comment.id, :link => link } %>
+  </ul>
+<%end%>

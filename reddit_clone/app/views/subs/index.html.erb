@@ -1,0 +1,11 @@
+<h1>Sub Index</h1>
+
+<%=button_to("Create Subs", new_sub_url, :method => :get)%>
+
+<%Sub.sub_ranking.each_with_index do |sub, i|%>
+  <p><%=i+1%>. <%= link_to(sub.name, sub_url(sub)) %>
+  </p>
+  <ul>
+    <li><%=sub.up_votes%> Up and <%=sub.down_votes%> Down</li>
+  </ul>
+<%end%>

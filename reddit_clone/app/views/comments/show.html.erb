@@ -1,0 +1,25 @@
+<h1>Original Comment</h1>
+
+<table>
+  <tr>
+    <td><%=@parent_comment.body%></td>
+  </tr>
+</table>
+
+<h1>Add Comment to Comment</h1>
+
+<form action = "<%=link_comments_url(@link)%>"
+     method = "POST">
+
+  <input type = "hidden" name = "authenticity_token"
+      value = "<%=form_authenticity_token%>">
+
+  <p><label for = "comment">Comment</label>
+    <textarea name = "comment[body]" id = "comment"></textarea>
+  </p>
+
+  <input type = "hidden" name = "comment[comment_id]"
+      value = "<%=@parent_comment.id%>">
+
+  <input type = "submit" value = "Post Comment">
+</form>

@@ -1,0 +1,6 @@
+<h1>Link Index</h1>
+
+<%@links.each_with_index do |link, i|%>
+  <p><%=i+1%>. <a href= "<%=link_url(link)%>"><%=link.title%></a>
+  </p>
+<%end%>

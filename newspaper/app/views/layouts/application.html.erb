@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Social</title>
+  <!--><%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>-->
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%if flash[:notice]%>
+  <%flash[:notice].each do |notice|%>
+    <p><%=notice%></p>
+  <%end%>
+<%end%>
+
+<%if flash[:errors]%>
+  <%flash[:errors].each do |error|%>
+    <p><%=error%></p>
+  <%end%>
+<%end%>
+
+<%if logged_in?%>
+  <%=current_user.email%>
+  <%=button_to("Log Out", session_url, :method => :delete)%>
+<%else%>
+  <%=button_to("Log In", new_session_url, :method => :get)%>
+<%end%>
+
+
+<%= yield %>
+
+</body>
+</html>

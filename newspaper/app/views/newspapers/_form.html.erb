@@ -1,0 +1,52 @@
+<%message = @newspaper.persisted? ? "Edit Newspaper" : "Create Newspaper"%>
+<%action = @newspaper.persisted? ? newspaper_url : newspapers_url%>
+<%method = @newspaper.persisted? ? "PUT" : "POST"%>
+
+<h1><%=message%></h1>
+
+<form action="<%=action%>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <input type="hidden" name="_method" value="<%=method%>">
+
+  <p><label for="title">Title</label>
+    <input type="text" name="newspaper[title]" id="title" value="<%=@newspaper.title%>">
+  </p>
+
+  <p><label for="editor">Editor</label>
+    <input type="text" name="newspaper[editor]" id="editor" value="<%=@newspaper.editor%>">
+  </p>
+
+  <h1>Subscription Types</h1>
+
+  <%if @subscription_plans.nil?%>
+    <%3.times do |i|%>
+      <p><%=i+1%>. <label for="price<%=i%>">Price</label>
+        <input type="text" name="subscription_plan[<%=i%>][price]" id="price<%=i%>">
+      </p>
+      <p><label for="types<%=i%>">Monthly</label>
+        <input type="checkbox" name="subscription_plan[<%=i%>][monthly_plan]" id="types<%=i%>"
+              value="true">
+        <label for="types<%=i%>">Weekly</label>
+        <input type="checkbox" name="subscription_plan[<%=i%>][monthly_plan]" id="types<%=i%>"
+              value="false">
+      </p>
+    <%end%>
+  <%else%>
+    <%@subscription_plans.each_with_index do |plan, i|%>
+      <p><%=i+1%>. <label for="price<%=i%>">Price</label>
+        <input type="text" name="subscription_plans_attributes[][price]" id="price<%=i%>"
+               value="<%=plan.price%>">
+      </p>
+      <p><label for="types<%=i%>">Monthly</label>
+        <input type="checkbox" name="subscription_plans_attributes[][monthly_plan]"
+               id="types<%=i%>" value="true" <%="checked" if plan.monthly_plan%>>
+        <label for="types<%=i%>">Weekly</label>
+        <input type="checkbox" name="subscription_plans_attributes[][monthly_plan]"
+               id="types<%=i%>" value="false" <%="checked" if !plan.monthly_plan%>>
+      </p>
+      <input type="hidden" name="subscription_plans_attributes[][id]" value="<%=plan.id%>">
+    <%end%>
+  <%end%>
+
+  <input type="submit" id="%<=message%>">
+</form>

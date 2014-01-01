@@ -1,0 +1,53 @@
+<h1>Newspaper</h1>
+
+<%=button_to("Back to Index", newspapers_url, :method => :get)%>
+<%=button_to("Edit Newspaper", edit_newspaper_url(@newspaper), :method => :get)%>
+<%=button_to("Delete Newspaper", newspaper_url(@newspaper), :method => :delete)%>
+
+<table>
+  <tr>
+    <td>Title</td>
+    <td><%=@newspaper.title%></td>
+  </tr>
+  <tr>
+    <td>Editor</td>
+    <td><%=@newspaper.editor%></td>
+  </tr>
+</table>
+
+<h2>Subscriptions</h2>
+<table>
+  <%@newspaper.subscription_plans.each do |sub|%>
+    <tr>
+      <td><%if sub.monthly_plan%>
+            Monthly
+          <%else%>
+            Weekly
+          <%end%>
+      </td>
+      <td>Price: </td>
+      <td>$ <%=sub.price%></td>
+      <td><%=button_to("Delete Subscription", newspaper_subscription_plan_url(@newspaper, sub), 
+                  :method => :delete)%></td>
+    </tr>
+  <%end%>
+</table>
+
+<h2>Create New Subscription Plans</h2>
+
+<form action="<%=newspaper_subscription_plans_url(@newspaper)%>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+
+
+  <p><label for="price">Price</label>
+    <input type="text" name="subscription_plan[price]" id="price">
+  </p>
+  <p><label for="types">Monthly</label>
+    <input type="checkbox" name="subscription_plan[monthly_plan]" id="types" value="true">
+        
+    <label for="types">Weekly</label>
+    <input type="checkbox" name="subscription_plan[monthly_plan]" id="types" value="false">
+  </p>
+
+  <input type="submit" value="Create new subscriptions">
+</form>

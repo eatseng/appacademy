@@ -1,0 +1,39 @@
+<h1>Available Subscriptions</h1>
+
+<%@newspapers.each_with_index do |news, i|%>
+  <form action="<%=sub_url%>" method="POST"> 
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  
+    <input type="hidden" name="newspaper[title]" value="<%=news.title%>">
+    <p><%=i+1%>. <label for="<%=news.title%>"><%=news.title%></label></p>
+      <select name="subscription[subscription_plan_id]" id="<%=news.title%>">
+        <%news.subscription_plans.each_with_index do |plan, i|%>
+          <option value="<%=plan.id%>">
+            <%if plan.monthly_plan%>
+              Monthly $<%=plan.price%>
+            <%else%>
+              Weekly $<%=plan.price%>
+            <%end%>
+          </option>
+        <%end%>
+    <input type="submit" value="Submit Subscription">
+  </form>
+<%end%>
+
+<h1>Subscribed</h1>
+
+<%@subscriptions.each_with_index do |sub, i|%>
+  <%plan = sub.subscription_plan%>
+  <%title = plan.newspaper.title%>
+
+  <p><%=i+1%>. <%=title%> 
+    <%if plan.monthly_plan%>
+      Monthly $<%=plan.price%>
+    <%else%>
+      Weekly $<%=plan.price%>
+    <%end%>
+
+    <%=button_to("Delete Subscription", subscription_url(sub), :method => :delete)%>
+  </p>
+<%end%>
+

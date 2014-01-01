@@ -1,0 +1,8 @@
+<h1>Newspaper Index</h1>
+
+<a href="<%=new_newspaper_url%>">New newspaper</a>
+
+<%@newspapers.each_with_index do |news, i|%>
+  <p><%=i+1%>. <a href="<%=newspaper_url(news)%>"><%=news.title%></a>
+  </p>
+<%end%>

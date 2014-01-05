@@ -14,8 +14,6 @@
 		$('.tile').on('click', function(event){
 			var targetId = $(event.target).data('id');
 			var playerMove = that.tileMapping(targetId);
-			console.log("targetId " + targetId);
-			console.log("PlayerMove " + playerMove);
 			if (that.game.valid(playerMove)) {
 				that.game.move(playerMove);
 				if (playerX) {

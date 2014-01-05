@@ -10,3 +10,4 @@ Class Projects:
 5. Checkers (Requires colorize)
 6. Tic Tac Toe (Javascript/JQuery)
 7. Tower of Hanoi (Javascript/JQuery)
+8. Snake (Javascript/JQuery)

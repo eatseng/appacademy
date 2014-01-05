@@ -9,9 +9,10 @@
 </head>
 <body>
     <script>
-			var game = new this.Hanoi.Game();
-			var UI = new this.Hanoi.UI(game);
-			UI.initialize();
+      $(function () {
+        var game = new Hanoi.Game();
+        new Hanoi.UI(game).initialize();
+      })
     </script>
 </body>
 </html>

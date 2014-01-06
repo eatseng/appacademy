@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Asteroids</title>
+    <script type = "text/javascript"
+            src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+    </script>
+    <script type="text/javascript" src="keymaster.js"></script>    
+    <script type="text/javascript" src="util.js"></script>
+    <script type="text/javascript" src="movingObject.js"></script>
+    <script type="text/javascript" src="asteroid.js"></script>
+    <script type="text/javascript" src="ship.js"></script>
+    <script type="text/javascript" src="bullet.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="asteroids.css"></link>
+  </head>
+  <body>
+    <div class="title"></div><br  />
+    <canvas id="canvas" width="800" height="400"></canvas>
+    <div class="score"></div>
+    <div class="acc"></div>
+    <script>
+      var canvas = document.getElementById('canvas');
+      $(function () {
+        var game = new Asteroids.Game(canvas);
+        game.start();
+      });
+    </script>
+  </body>
+</html>
+
+
+
+

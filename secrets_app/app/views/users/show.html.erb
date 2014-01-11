@@ -1,0 +1,33 @@
+<h1><%= @user.username %></h1>
+
+<h2>Secrets</h2>
+<ul id='secret_list'>
+  <% @user.received_secrets.each do |secret| %>
+    <li><%= secret.title %></li>
+  <% end %>
+</ul>
+
+<%= render "secrets/form", :locals => {:user => @user} %>
+
+
+
+<script>
+  $('#secret_form').on('click', function(event) {
+    event.preventDefault();
+    var formData = $('#secret_content').val();
+
+    $.ajax({
+      url: '/secrets',
+      type: 'POST',
+      data: {secret: {recipient_id: <%=@user.id%>, title: formData}},
+      success: function() {
+        $('#secret_content').val('');
+        $('ul').append('<li>' + formData + '</li>')
+      }
+    });
+  });
+  
+
+
+
+</script>

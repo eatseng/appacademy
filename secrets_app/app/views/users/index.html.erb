@@ -1,0 +1,45 @@
+<h1>Create Friendship</h1>
+
+<ul>
+<%@users.each do |user|%>
+    <li><%=user.username%>
+        <%if can_friend?(current_user.id, user.id)%>
+          <span class="friend-buttons can-friend" data-id="<%=user.id%>">
+        <%else%>
+          <span class="friend-buttons can-unfriend" data-id="<%=user.id%>">
+        <%end%>
+      <button class="friend" data-id="<%=user.id%>">Friend</button>
+      <button class="unfriend" data-id="<%=user.id%>">Un-friend</button>
+      </span>
+    </li>
+<%end%>
+</ul>
+
+<script>
+
+var toggleFriendButtons = function ($button) {
+  $button.parents('.friend-buttons').toggleClass('can-friend')
+  $button.parents('.friend-buttons').toggleClass('can-unfriend')
+}
+
+$('button').on("click", function(event) {
+  event.preventDefault();
+  var friend_id = $(event.currentTarget).attr('data-id');
+  var $button = $(event.currentTarget)
+  if ($button.attr('class') == 'friend') {
+    var type = 'POST' 
+  } else {
+    var type = 'DELETE'
+  }
+
+  $.ajax({
+    url: '/friendships',
+    type: type,
+    data: {friend_id: friend_id},
+    success: function(friendship) {
+      toggleFriendButtons($button);
+    }
+  });
+});
+
+</script>

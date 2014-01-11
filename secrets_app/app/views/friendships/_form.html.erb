@@ -1,0 +1,9 @@
+<h1>Create Friendship</h1>
+
+<%@users.each do |user|%>
+  <%if can_friend?(current_user.id, user.id)%>
+    <p><%=user.username%>
+      <%=button_to("Friend", friendships_url(user.id), :method => :post)%>
+    </p>
+  <%end%>
+<%end%>

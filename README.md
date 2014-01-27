@@ -3,8 +3,8 @@ App Academy
 
 Final Project
 -------------
-1. [PetJoy (Simple Facebook clone)](http://petjoy.herokuapp.com) 
-2. [Github repo](https://github.com/eatseng/FosterPet)
+[PetJoy (Simple Facebook clone)](http://petjoy.herokuapp.com) 
+[Github repo](https://github.com/eatseng/FosterPet)
 
 Ruby on Rails Applications
 ---------------------------
@@ -17,15 +17,14 @@ Ruby on Rails Applications
 
 Games
 -----
-1. HangMan
-2. WordChain (!In Progress)
-3. MineSweeper
-4. Chess (Requires colorize [gem install colorize])
-5. Checkers (Requires colorize)
-6. Tic Tac Toe (Javascript/JQuery)
-7. Tower of Hanoi (Javascript/JQuery)
-8. Snake (Javascript/JQuery)
-9. [Asteroids (Javascript/Canvas) (movement w-a-s-d, fire f)](http://morning-ocean-9992.herokuapp.com/)
+1. HangMan (Ruby)
+2. MineSweeper (Ruby)
+3. Chess (Ruby) (Requires colorize [gem install colorize])
+4. Checkers (Ruby) (Requires colorize)
+5. Tic Tac Toe (Javascript/JQuery)
+6. Tower of Hanoi (Javascript/JQuery)
+7. Snake (Javascript/JQuery)
+8. [Asteroids (Javascript/Canvas) (movement w-a-s-d, fire f)](http://morning-ocean-9992.herokuapp.com/)
 
 
 API interface

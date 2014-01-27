@@ -3,7 +3,8 @@ App Academy
 
 Final Project
 -------------
-1. [PetJoy (Simple Facebook clone)](http://petjoy.herokuapp.com) [Github repo](https://github.com/eatseng/FosterPet)
+1. [PetJoy (Simple Facebook clone)](http://petjoy.herokuapp.com) 
+2. [Github repo](https://github.com/eatseng/FosterPet)
 
 Ruby on Rails Applications
 ---------------------------

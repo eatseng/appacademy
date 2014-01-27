@@ -25,7 +25,7 @@ Games
 6. Tic Tac Toe (Javascript/JQuery)
 7. Tower of Hanoi (Javascript/JQuery)
 8. Snake (Javascript/JQuery)
-9. [Asteroids (Javascript/Canvas)](http://morning-ocean-9992.herokuapp.com/)
+9. [Asteroids (Javascript/Canvas) (movement w-a-s-d, fire f)](http://morning-ocean-9992.herokuapp.com/)
 
 
 API interface

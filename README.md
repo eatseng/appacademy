@@ -1,6 +1,10 @@
 App Academy
 ==========
 
+Final Project
+-------------
+1. [PetJoy (Simple Facebook clone)](http://petjoy.herokuapp.com)
+
 Ruby on Rails Applications
 ---------------------------
 1. Reddit (Simple reddit clone)
@@ -25,4 +29,4 @@ Games
 
 API interface
 --------------------------
-Ice Cream Finder (Find the direction to nearest ice cream store nearest you)
+1. Ice Cream Finder (Find the direction to nearest ice cream store nearest you)

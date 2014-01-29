@@ -3,7 +3,7 @@ App Academy
 
 Final Project
 -------------
-[PetJoy (Simple Facebook for pets clone)](https://github.com/eatseng/FosterPet)  
+[PetJoy (Facebook clone for pets)](https://github.com/eatseng/FosterPet)  
 
 Ruby on Rails Applications
 ---------------------------

@@ -1,0 +1,12 @@
+<ul>
+<%collection.each(function(gist) {%>
+  <li><a href='#gists/<%=gist.get('id')%>'><%=gist.get('title')%></a>
+    <%if (gist.get('favorite')) {%>
+      <button class='unfavorite' gist_id='<%=gist.get('id')%>'
+         id='<%=gist.get('favorite').get('id')%>'>unFavorite</button>
+    <%} else{ %>
+     <button class='favorite' data-id='<%=gist.get('id')%>'>Favorite</button>
+    <%}%>
+  </li>
+<%});%>
+</ul>

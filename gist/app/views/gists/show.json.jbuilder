@@ -1,0 +1,1 @@
+json.(@gist, :id, :title, :user_id)
